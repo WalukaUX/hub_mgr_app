@@ -1,0 +1,15 @@
+#mainPage{
+    background-color: beige;
+    flex-direction: row;
+    justify-content:space-evenly;
+    align-items: center;
+    text-align: center;
+    padding: 5%;
+    min-height: 75vh;
+}
+.mainSection2{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+}

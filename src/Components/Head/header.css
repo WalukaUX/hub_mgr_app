@@ -1,0 +1,22 @@
+#header{
+    background-color: rgb(228, 205, 176);
+    padding: 3%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.searchBtn {
+    margin: 1%;
+    width: auto;
+    min-width: 200px;
+    font-size:x-large;
+}
+.addBtn{
+    margin: 1%;
+    width: auto;
+    min-width: 200px;
+    font-size:x-large;
+}
+
+h1{
+    font-family: 'Kavoon', cursive;
+}

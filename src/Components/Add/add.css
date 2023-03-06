@@ -1,0 +1,35 @@
+.addDiv{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+
+}
+.addShelvesDiv{
+    display: flex;
+    justify-content: center;
+} 
+.addForm > div,label{
+    padding: 5px;
+}
+.messageDiv{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.messageDiv > * {
+    text-align: left;
+}
+.messageDiv > div > p{
+    margin-bottom: 0 !important;
+}
+.messageDiv > div > p> span{
+  color: rgb(36, 25, 54);
+}
+.messageInnerDiv{
+    display: flex;
+}
+.labels > *{
+    color: black;
+    margin-right: 10px;
+}

@@ -1,0 +1,39 @@
+#search{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+.searchResults{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    justify-content:space-between;
+    padding-bottom: 0;
+}
+.searchShelfResults{
+    display: flex;
+    align-items: center;
+}
+.searchShelfResults > div{
+    margin: 20px;
+}
+.binNums{
+    color: brown;
+}
+.buttonDiv{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box; 
+    align-items: right;
+}
+.buttonDiv > button{
+    margin: 10px;
+}
+.searchInput{
+    width: 400px;
+}
+.confirmationDiv button{
+    margin: 10px;
+}
