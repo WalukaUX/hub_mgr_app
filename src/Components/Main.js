@@ -125,23 +125,8 @@ function Main() {
     }, 5000);
   }
 
-  function shelfView() {
-    setActiveShelfView(true);
-    setHome(true);
-  }
   return (
     <>
-      {/* itemtoEdit ? (
-    <Edit
-      setItemtoEdit={setItemtoEdit}
-      itemtoEdit={itemtoEdit}
-      updateData={updateData}
-      setUpdateData={setUpdateData}
-      updateItem={updateItem}
-      message={message}
-      setMessage={setMessage}
-    />
-  ) : ( */}
       <div>
         <Header
           setIsSearching={setIsSearching}
@@ -149,23 +134,21 @@ function Main() {
           add={add}
           setAdd={setAdd}
           setHome={setHome}
-          shelfView={shelfView}
+          setActiveShelfView={setActiveShelfView}
+          activeShelfView={activeShelfView}
         />
         <div id="mainPage">
           {home ? (
             activeShelfView ? (
-              <ShelfView />
+              <ShelfView items={items} />
             ) : !isSearching ? (
               <div>
                 <Search
                   resetHomePage={resetHomePage}
                   items={items}
                   sendDeleteCommand={sendDeleteCommand}
-                  //setItemtoEdit={setItemtoEdit}
-                  //----------
                   updateData={updateData}
                   setUpdateData={setUpdateData}
-                  // itemtoEdit={itemtoEdit}
                   updateWindow={updateWindow}
                   setUpdateWindow={setUpdateWindow}
                   updateItem={updateItem}

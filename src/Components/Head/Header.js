@@ -5,17 +5,26 @@ function Header({
   add,
   setAdd,
   setHome,
-  shelfView,
+  setActiveShelfView,
+  activeShelfView,
 }) {
   function serchAction() {
+    setActiveShelfView(false);
     setHome(true);
     setIsSearching(false);
     setAdd(true);
   }
   function addAction() {
+    setActiveShelfView(false);
     setHome(true);
     setIsSearching(true);
     setAdd(false);
+  }
+  function shelfView() {
+    setActiveShelfView(!activeShelfView);
+    setHome(true);
+    setIsSearching(true);
+    setAdd(true);
   }
   return (
     <>
@@ -45,7 +54,8 @@ function Header({
           <button
             onClick={shelfView}
             type="button"
-            className="btn btn-success searchBtn"
+            className="btn btn-light searchBtn"
+            disabled={activeShelfView}
           >
             Shelf View
           </button>

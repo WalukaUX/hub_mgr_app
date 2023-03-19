@@ -3,8 +3,6 @@ import CreateOrUpdateMsg from "../Messages/CreateOrUpdateMsg";
 import SuccessOrFailMsg from "../Messages/SuccessOrFailMsg";
 
 function Edit({
-  itemtoEdit,
-  setItemtoEdit,
   updateData,
   setUpdateData,
   updateItem,

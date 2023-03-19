@@ -60,8 +60,6 @@ function Search({
     <>
       {updateWindow ? (
         <Edit
-          // setItemtoEdit={setItemtoEdit}
-          // itemtoEdit={itemtoEdit}
           updateData={updateData}
           setUpdateData={setUpdateData}
           selectedItem={selectedItem}
