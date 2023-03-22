@@ -133,12 +133,12 @@ function Search({
                   .filter((card) =>
                     card.name.toLowerCase().includes(searchTearm)
                   )
-                  .map((e) => {
+                  .map((itmcard) => {
                     return (
                       <div
                         className="alert alert-info searchResults"
                         role="alert"
-                        key={e.id}
+                        key={itmcard.id}
                       >
                         <div
                           className="alert alert-info searchShelfResults"
@@ -146,9 +146,9 @@ function Search({
                         >
                           <div>
                             <p>
-                              Name: <b>{e.name}</b>
+                              Name: <b>{itmcard.name}</b>
                             </p>
-                            <p>Keyword: {e.keyword}</p>
+                            <p>Keyword: {itmcard.keyword}</p>
                           </div>
                           <div>
                             <p>Shelf Number</p>
@@ -159,19 +159,19 @@ function Search({
                             <p>
                               :
                               <span className="binNums">
-                                <b> {e.shelf_num}</b>
+                                <b> {itmcard.shelf_num}</b>
                               </span>
                             </p>
                             <p>
                               :
                               <span className="binNums">
-                                <b> {e.level_num}</b>
+                                <b> {itmcard.level_num}</b>
                               </span>
                             </p>
                             <p>
                               :
                               <span className="binNums">
-                                <b> {e.bin_num}</b>
+                                <b> {itmcard.bin_num}</b>
                               </span>
                             </p>
                           </div>
@@ -180,14 +180,14 @@ function Search({
                           <button
                             type="button"
                             className="btn btn-warning"
-                            onClick={() => editItem(e)}
+                            onClick={() => editItem(itmcard)}
                           >
                             Edit
                           </button>
                           <button
                             type="button"
                             className="btn btn-danger"
-                            onClick={() => triggerConfirm(e)}
+                            onClick={() => triggerConfirm(itmcard)}
                           >
                             Delete
                           </button>

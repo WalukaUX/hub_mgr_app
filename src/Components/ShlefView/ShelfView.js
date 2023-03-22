@@ -56,25 +56,23 @@ function ShelfView({ items }) {
       .map((levelNumber) => {
         let subKey = levelNumber * 5;
         return (
-          <div
-            style={{
-              backgroundColor: "#FFEBB4",
-              height: "50px",
-              border: "1px solid black",
-            }}
-            key={subKey}
-          >
+          <div className="levelDiv" key={subKey}>
             <div>
               <span>Level {levelNumber + 1}</span>
             </div>
             <div className="binsMainDiv">
+              <div className="binNumMainDiv">
+                <div className="binNumDiv">Bin</div>
+                <div className="binNumDiv">Num</div>
+                <div className="binNumDiv">➡️</div>
+              </div>
               {genarateBins(itemArray, levelNumber + 1, shelfNumber)}
             </div>
           </div>
         );
       });
   }
-
+  let uniqueDivIds = new Set();
   function genarateBins(itemArray, levelNumber, shelfNumber) {
     if (itemArray.length !== 1) {
       return itemArray
@@ -85,19 +83,21 @@ function ShelfView({ items }) {
             let itemCount = [];
             itemCount.push(item.bin_num);
             let idOfTheItem = `${shelfNumber}${levelNumber}${item.bin_num}`;
-            let findId = document.getElementById(idOfTheItem.toString());
-            console.log(findId);
-            if (!findId) {
+            // let findId = document.getElementById(idOfTheItem.toString());
+            if (!uniqueDivIds.has(idOfTheItem)) {
+              uniqueDivIds.add(idOfTheItem);
               return (
-                <div key={binKey} className="btn btn-success" id={idOfTheItem}>
-                  <p>{item.bin_num}</p>
-                  <span style={{ color: "blue", fontSize: "10px" }}>
-                    {countItems()}
-                  </span>
+                <div
+                  key={binKey}
+                  onClick={() => openPopup(item)}
+                  className="binButton"
+                  id={idOfTheItem}
+                >
+                  <span>{item.bin_num}</span>
+                  <span style={{ color: "blue", fontSize: "10px" }}></span>
                 </div>
               );
             } else {
-              let currentValue = document.getElementById(toString(idOfTheItem));
               return "";
             }
           } else {
@@ -107,8 +107,8 @@ function ShelfView({ items }) {
     }
   }
 
-  function countItems(itm) {
-    return 11;
+  function openPopup(item) {
+    console.log(item);
   }
   return (
     <>
