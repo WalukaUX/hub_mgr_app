@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BASE_URL from "../constrains/URL";
-import Search from "./Serach/Search";
+import Search from "./Search/Search";
 import Header from "./Head/Header";
 import Add from "./Add/Add";
 import "./main.css";
@@ -34,7 +34,12 @@ function Main() {
       },
     })
       .then((r) => r.json())
-      .then((r) => setItems(r));
+      .then((r) => {
+        let filterValidItems = r.filter(
+          (card) => card.name !== null && card.shelf_num !== null
+        );
+        setItems(filterValidItems);
+      });
   }, []);
 
   //Add a new Item-------------------------

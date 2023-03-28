@@ -32,6 +32,30 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
     e.preventDefault();
     setMessage(false);
   }
+
+  function createOptions(numOfOpt) {
+    var options = [];
+    for (var i = 1; i < numOfOpt; i++) {
+      options.push(i);
+    }
+    return options.map((e) => (
+      <option value={e} key={e}>
+        {e}
+      </option>
+    ));
+  }
+
+  function activateAddItemBtn() {
+    if (
+      newItem.name &&
+      newItem.shelf_num !== "Choose..." &&
+      newItem.shelf_num !== undefined
+    ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
   return (
     <>
       <div>
@@ -50,7 +74,12 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
           </div>
           <form onSubmit={AddItem} className="addForm" id="addForm">
             <div className="form-group">
-              <label htmlFor="inputAddress">Name</label>
+              <label htmlFor="inputAddress">
+                <span style={{ color: "red" }}>
+                  <b>*</b>
+                </span>
+                Name
+              </label>
               <input
                 onChange={createObject}
                 type="text"
@@ -74,7 +103,12 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
 
             <div className="form-row addShelvesDiv">
               <div className="form-group col-md-4" style={{ width: "50%" }}>
-                <label htmlFor="inputState">Shelf Number</label>
+                <label htmlFor="inputState">
+                  <span style={{ color: "red" }}>
+                    <b>*</b>
+                  </span>
+                  Shelf Number
+                </label>
                 <select
                   name="shelf_num"
                   id="inputState"
@@ -82,18 +116,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
                   onChange={createObject}
                 >
                   <option defaultValue>Choose...</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
+                  {createOptions(19)}
                 </select>
               </div>
               <div className="form-group col-md-4" style={{ width: "50%" }}>
@@ -105,18 +128,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
                   onChange={createObject}
                 >
                   <option defaultValue>Choose...</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
+                  {createOptions(13)}
                 </select>
               </div>
               <div className="form-group col-md-4" style={{ width: "50%" }}>
@@ -128,31 +140,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
                   onChange={createObject}
                 >
                   <option defaultValue>Choose...</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                  <option value="12">12</option>
-                  <option value="13">13</option>
-                  <option value="14">14</option>
-                  <option value="15">15</option>
-                  <option value="16">16</option>
-                  <option value="17">17</option>
-                  <option value="18">18</option>
-                  <option value="19">19</option>
-                  <option value="20">20</option>
-                  <option value="21">21</option>
-                  <option value="22">22</option>
-                  <option value="23">23</option>
-                  <option value="24">24</option>
-                  <option value="25">25</option>
+                  {createOptions(26)}
                 </select>
               </div>
             </div>
@@ -162,6 +150,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
               type="submit"
               className="btn btn-success"
               style={{ margin: "20px" }}
+              disabled={activateAddItemBtn()}
             >
               Add Item
             </button>

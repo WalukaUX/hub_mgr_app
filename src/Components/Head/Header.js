@@ -39,7 +39,7 @@ function Header({
             className="btn btn-success searchBtn"
             disabled={!isSearching}
           >
-            Serach Items
+            Search Items
           </button>
           <button
             onClick={addAction}
