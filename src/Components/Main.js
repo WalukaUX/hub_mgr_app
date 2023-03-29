@@ -16,7 +16,7 @@ function Main() {
   const [message, setMessage] = useState(false);
   const [updateData, setUpdateData] = useState(null);
   const [updateWindow, setUpdateWindow] = useState(false);
-  const [activeShelfView, setActiveShelfView] = useState(false);
+  const [activeShelfView, setActiveShelfView] = useState(true);
   // const [updateData, setUpdateData] = useState(null);
 
   function resetHomePage() {
@@ -78,7 +78,7 @@ function Main() {
       method: "DELETE",
     }).then((res) => {
       if (res.ok) {
-        res.json().then((obj) => {
+        res.json().then(() => {
           const removeDeletedItem = items.filter((x) => x.id !== e.id);
           setItems(removeDeletedItem);
         });
@@ -145,7 +145,13 @@ function Main() {
         <div id="mainPage">
           {home ? (
             activeShelfView ? (
-              <ShelfView items={items} />
+              <ShelfView
+                items={items}
+                sendDeleteCommand={sendDeleteCommand}
+                updateData={updateData}
+                setUpdateData={setUpdateData}
+                updateItem={updateItem}
+              />
             ) : !isSearching ? (
               <div>
                 <Search

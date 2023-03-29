@@ -34,6 +34,18 @@ function Edit({
     setMessage(false);
   }
 
+  function genarateOptions(numOfOpt) {
+    var options = [];
+    for (var i = 1; i < numOfOpt; i++) {
+      options.push(i);
+    }
+    return options.map((e) => (
+      <option value={e} key={e}>
+        {e}
+      </option>
+    ));
+  }
+
   return (
     <div className="popup-box" key={selectedItem.id}>
       <div className="popup-inner">
@@ -90,18 +102,7 @@ function Edit({
                     onChange={handleChangeData}
                   >
                     <option defaultValue>{selectedItem.shelf_num}</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                    {genarateOptions(19)}
                   </select>
                 </div>
                 <div className="form-group col-md-4" style={{ width: "50%" }}>
@@ -113,18 +114,7 @@ function Edit({
                     onChange={handleChangeData}
                   >
                     <option defaultValue>{selectedItem.level_num}</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                    {genarateOptions(13)}
                   </select>
                 </div>
                 <div className="form-group col-md-4" style={{ width: "50%" }}>
@@ -136,18 +126,7 @@ function Edit({
                     onChange={handleChangeData}
                   >
                     <option defaultValue>{selectedItem.bin_num}</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
+                    {genarateOptions(26)}
                   </select>
                 </div>
               </div>

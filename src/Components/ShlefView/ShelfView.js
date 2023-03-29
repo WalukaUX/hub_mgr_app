@@ -1,7 +1,14 @@
 import { useState } from "react";
 import "./shelfView.css";
+import BinCard from "./BinCard";
 
-function ShelfView({ items }) {
+function ShelfView({
+  items,
+  sendDeleteCommand,
+  updateData,
+  setUpdateData,
+  updateItem,
+}) {
   const [itemPopUpwin, setItemPopUpwin] = useState(false);
   const [binItem, setBinItem] = useState({});
   const slvs = [
@@ -122,59 +129,14 @@ function ShelfView({ items }) {
         itmcard.bin_num === binItem.bin_num
       ) {
         return (
-          <>
-            <div className="alert alert-info searchResults" role="alert">
-              <div className="alert alert-info searchShelfResults" role="alert">
-                <div>
-                  <p>
-                    Name: <b>{itmcard.name}</b>
-                  </p>
-                  <p>Keyword: {itmcard.keyword}</p>
-                </div>
-                <div>
-                  <p>Shelf Number</p>
-                  <p>Level Number</p>
-                  <p>Bin Number</p>
-                </div>
-                <div>
-                  <p>
-                    :
-                    <span className="binNums">
-                      <b> {itmcard.shelf_num}</b>
-                    </span>
-                  </p>
-                  <p>
-                    :
-                    <span className="binNums">
-                      <b> {itmcard.level_num}</b>
-                    </span>
-                  </p>
-                  <p>
-                    :
-                    <span className="binNums">
-                      <b> {itmcard.bin_num}</b>
-                    </span>
-                  </p>
-                </div>
-              </div>
-              <div className="buttonDiv">
-                <button
-                  type="button"
-                  className="btn btn-warning"
-                  // onClick={() => editItem(itmcard)}
-                >
-                  Edit
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-danger"
-                  // onClick={() => triggerConfirm(itmcard)}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          </>
+          <BinCard
+            itemcard={itmcard}
+            key={itmcard.id}
+            sendDeleteCommand={sendDeleteCommand}
+            updateData={updateData}
+            setUpdateData={setUpdateData}
+            updateItem={updateItem}
+          />
         );
       } else {
         return "";
@@ -188,28 +150,30 @@ function ShelfView({ items }) {
         <div className="mainGrid">
           {genarateShelfs()}
           {itemPopUpwin ? (
-            <div className="popup-box">
-              <div className="popup-inner">
-                <div style={{ backgroundColor: "#F2EFDC", padding: "20px" }}>
-                  <h4>
+            <div className="popup-box binViewInner">
+              <div className="popup-inner iner">
+                <div
+                  style={{
+                    backgroundColor: "#F2EFDC",
+                    padding: "10px 20px 0 20px",
+                    overflow: "scroll",
+                  }}
+                >
+                  <h4 className="alert alert-success popUpeditH1">
                     Items in Shelf number {binItem.shelf_num}, Level Number{" "}
                     {binItem.level_num}{" "}
                     {binItem.bin_num ? `, BinNumber ${binItem.bin_num}` : ""}
                   </h4>
+
                   {createBinItemcards()}
-                  <div className="editBtnBox">
-                    <div>
-                      <button className="btn btn-success" type="submit">
-                        Save
-                      </button>
-                    </div>
+                  <div className="alert alert-primary popUpeditBtnBox">
                     <div>
                       <button
                         className="btn btn-warning"
                         style={{ marginLeft: "20px" }}
                         onClick={() => setItemPopUpwin(false)}
                       >
-                        Cancel
+                        Go Back
                       </button>
                     </div>
                   </div>
@@ -226,5 +190,3 @@ function ShelfView({ items }) {
 }
 
 export default ShelfView;
-
-///issue shelfview renders twice
