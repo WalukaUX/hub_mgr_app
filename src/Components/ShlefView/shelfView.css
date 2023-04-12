@@ -1,6 +1,6 @@
 .mainGrid{
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 33% 33% 33%;
     padding: 10px;
 }
 .subDiv{
@@ -42,27 +42,43 @@
     border-radius: 20px;
     text-decoration: none;
  }
+ .slfnumberh4{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #2e6ec7;
+ }
 .binsMainDiv{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
 }
 .levelDiv{
         background-color: "#FFEBB4";
         min-height: 60px;
         border: 1px solid black;
-}
-.binsMainDiv > button{
-    background-color: antiquewhite !important;
+        padding: 10px;
 }
 .binNumMainDiv{
     display: flex;
+    position: sticky;
+    left: 0;
 }
+.binsMainDiv{
+   overflow: scroll;
+   overflow-y: hidden;
+   justify-content: left;
+}
+.binsMainDiv > div{
+    justify-content:center;
+}
+
 .binNumDiv{
     writing-mode: vertical-rl;
     text-orientation: upright;
     font-size: 10px;
 }
 .binButton{
+    /* display: block; */
+    width: 100%;
     background: #bcd1c8;
     background-image: -webkit-linear-gradient(top, #bcd1c8, #61d690);
     background-image: -moz-linear-gradient(top, #bcd1c8, #61d690);

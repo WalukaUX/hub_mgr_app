@@ -38,7 +38,7 @@ function ShelfView({
         slvs[e.shelf_num - 1].push(e);
       }
     });
-
+    console.log(slvs);
     return createDiv();
   }
 
@@ -48,7 +48,7 @@ function ShelfView({
       return (
         <div className="subDiv" key={shelfNumber * 7}>
           <div>
-            <h4>Shelf Number {shelfNumber}</h4>
+            <h4 className="slfnumberh4">Shelf Number {shelfNumber}</h4>
           </div>
           {createLevels(itemArray, shelfNumber)}
         </div>
