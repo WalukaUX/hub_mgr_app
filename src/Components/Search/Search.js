@@ -104,6 +104,7 @@ function Search({
           <form id="searchForm">
             <input
               type="text"
+              autoFocus
               className="form-control searchInput"
               onChange={searchItems}
               id="inputAddress"

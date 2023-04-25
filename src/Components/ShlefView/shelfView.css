@@ -76,15 +76,24 @@
     text-orientation: upright;
     font-size: 10px;
 }
-.binButton{
-    /* display: block; */
-    width: 100%;
+.topOfTheShelfBtn{
+    background: #bcd1c8;
+    background-image: -webkit-linear-gradient(top, #afbb84, #abd65c);
+    background-image: -moz-linear-gradient(top, #41705c, #b0f147);
+    background-image: -ms-linear-gradient(top, #629680, #9deb38);
+    background-image: -o-linear-gradient(top, #457a63, #eff149);
+    background-image: linear-gradient(to bottom, #76cca5, #b1e043);
+}
+.binButtonIntheShelf{
     background: #bcd1c8;
     background-image: -webkit-linear-gradient(top, #bcd1c8, #61d690);
     background-image: -moz-linear-gradient(top, #bcd1c8, #61d690);
     background-image: -ms-linear-gradient(top, #bcd1c8, #61d690);
     background-image: -o-linear-gradient(top, #bcd1c8, #61d690);
     background-image: linear-gradient(to bottom, #bcd1c8, #61d690);
+}
+.binButton{
+    width: 100%;
     -webkit-border-radius: 9;
     -moz-border-radius: 9;
     border-radius: 9px;

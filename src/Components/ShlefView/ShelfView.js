@@ -38,7 +38,6 @@ function ShelfView({
         slvs[e.shelf_num - 1].push(e);
       }
     });
-    console.log(slvs);
     return createDiv();
   }
 
@@ -49,6 +48,7 @@ function ShelfView({
         <div className="subDiv" key={shelfNumber * 7}>
           <div>
             <h4 className="slfnumberh4">Shelf Number {shelfNumber}</h4>
+            {findItemsWithoutaLevel(itemArray)}
           </div>
           {createLevels(itemArray, shelfNumber)}
         </div>
@@ -56,6 +56,26 @@ function ShelfView({
     });
     return createDiv;
   }
+  function findItemsWithoutaLevel(array){
+    let itmscount=0;
+    let filterItems=array.map((item,idx)=>{
+      
+      if((item.level_num === 0 || item.level_num === null)&& itmscount === 0 ){
+        itmscount++;
+        return <div
+        key={idx + "A"}
+        onClick={() => {
+          openPopup(item);
+        }}
+        className="topOfTheShelfBtn binButton"
+      >
+        <span style={{ color: "blue", fontSize: "10px" }}>On the top of the shelf</span>
+      </div>
+      }
+    })
+    return filterItems
+  }
+
   function createLevels(itemArray, shelfNumber) {
     var indents = [];
     for (var i = 0; i < itemArray[0]; i++) {
@@ -99,7 +119,7 @@ function ShelfView({
                   onClick={() => {
                     openPopup(item);
                   }}
-                  className="binButton"
+                  className="binButton binButtonIntheShelf"
                   id={idOfTheItem}
                 >
                   <span>{item.bin_num}</span>
