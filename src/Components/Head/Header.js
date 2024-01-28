@@ -31,7 +31,6 @@ function Header({
       <div id="header">
         <div>
           <h1>Lost in Cage? Need something? Try me...</h1>
-          <p style={{fontSize:"10px"}}>By {"=>"} Walukg</p>
         </div>
         <div>
           <button

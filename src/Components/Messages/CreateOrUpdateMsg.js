@@ -1,7 +1,9 @@
+import "./messagesStying.css"
+
 function CreateOrUpdateMsg({ message }) {
   return (
-    <>
-      <div className="alert alert-primary messageDiv" role="alert">
+    <div className="alert alert-primary">
+      <div className="messageDiv" role="alert">
         <div className="messageInnerDiv">
           <div className="labels">
             <p>Name</p>
@@ -25,7 +27,10 @@ function CreateOrUpdateMsg({ message }) {
           </div>
         </div>
       </div>
-    </>
+      <div className="messageDiv" role="alert">
+      <p className="linkURL">URL :{message.url}</p>
+      </div>
+    </div>
   );
 }
 export default CreateOrUpdateMsg;

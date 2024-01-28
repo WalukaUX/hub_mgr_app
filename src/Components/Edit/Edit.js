@@ -91,6 +91,18 @@ function Edit({
                   defaultValue={selectedItem.keyword}
                 />
               </div>
+              <div className="form-group">
+                <label htmlFor="inputAddress">Item URL</label>
+                <input
+                  type="url"
+                  name="url"
+                  className="form-control"
+                  id="inputAddress"
+                  onChange={handleChangeData}
+                  placeholder="https://www.example.com"
+                  defaultValue={selectedItem.url}
+                />
+              </div>
 
               <div className="form-row addShelvesDiv">
                 <div className="form-group col-md-4" style={{ width: "50%" }}>

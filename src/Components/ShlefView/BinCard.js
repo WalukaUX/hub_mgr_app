@@ -31,7 +31,8 @@ function BinCard({
   }
   return (
     <div className="alert alert-info searchResults" role="alert">
-      <div className="alert alert-info searchShelfResults" role="alert">
+      <div className="alert alert-info">
+      <div className="searchShelfResults" role="alert">
         <div>
           <p>
             Name:{" "}
@@ -107,6 +108,13 @@ function BinCard({
             </span>
           </p>
         </div>
+        </div>
+        <p className="linkURL">URL : {!editWndw ? itemcard.url ? <a href={itemcard.url} target="blank"> {itemcard.url} </a>: "N/A":<input
+                  name="url"
+                  defaultValue={itemcard.url}
+                  onChange={changeItemValue}
+                /> }</p>
+        
       </div>
       {!deleteWindow ? (
         <div className="buttonDiv">

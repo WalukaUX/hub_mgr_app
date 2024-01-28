@@ -3,6 +3,7 @@ import "./add.css";
 import CreateOrUpdateMsg from "../Messages/CreateOrUpdateMsg";
 import SuccessOrFailMsg from "../Messages/SuccessOrFailMsg";
 function Add({ resetHomePage, addNewItem, message, setMessage }) {
+
   const [newItem, setNewItem] = useState({});
 
   function AddItem(e) {
@@ -59,7 +60,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
   return (
     <>
       <div>
-        {message ? <CreateOrUpdateMsg message={message} /> : ""}
+        {message ? <CreateOrUpdateMsg message={message}  /> : ""}
         {message ? (
           <SuccessOrFailMsg
             message={message}
@@ -101,6 +102,18 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
               />
             </div>
 
+            <div className="form-group">
+              <label htmlFor="inputAddress">URL</label>
+              <input
+                type="url"
+                name="url"
+                className="form-control"
+                id="inputAddress"
+                onChange={createObject}
+                placeholder="https://www.amazon.com/GearIT-50-Pack-Ethernet-Cable-Snagless/dp/B01LYQH1LZ/"
+              />
+            </div>  
+
             <div className="form-row addShelvesDiv">
               <div className="form-group col-md-4" style={{ width: "50%" }}>
                 <label htmlFor="inputState">
@@ -140,7 +153,7 @@ function Add({ resetHomePage, addNewItem, message, setMessage }) {
                   onChange={createObject}
                 >
                   <option defaultValue>Choose...</option>
-                  {createOptions(26)}
+                  {createOptions(51)}
                 </select>
               </div>
             </div>

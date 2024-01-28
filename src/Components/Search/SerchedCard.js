@@ -7,7 +7,8 @@ function SearchedCard({ itmcard, triggerConfirm, editItem }) {
         role="alert"
         key={itmcard.id}
       >
-        <div className="alert alert-info searchShelfResults" role="alert">
+        <div className="alert alert-info">
+        <div className="searchShelfResults" role="alert">
           <div>
             <p>
               Name: <b>{itmcard.name}</b>
@@ -39,6 +40,9 @@ function SearchedCard({ itmcard, triggerConfirm, editItem }) {
               </span>
             </p>
           </div>
+          
+        </div>
+        <p className="linkURL">URL : {itmcard.url ?<a href={itmcard.url} target="blank"> {itmcard.url} </a>: "N/A"}</p>
         </div>
         <div className="buttonDiv">
           <button
