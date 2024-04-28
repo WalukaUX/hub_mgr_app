@@ -44,6 +44,9 @@ function SearchedCard({ itmcard, triggerConfirm, editItem }) {
         </div>
         <p className="linkURL">URL : {itmcard.url ?<a href={itmcard.url} target="blank"> {itmcard.url} </a>: "N/A"}</p>
         </div>
+        <div>
+          <img src={itmcard.url?itmcard.url:""}/>
+        </div>
         <div className="buttonDiv">
           <button
             type="button"
